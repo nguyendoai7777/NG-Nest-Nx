@@ -1,14 +1,21 @@
-GET http://localhost:3333/items/88
+GET http://localhost:3333/items/all
 
 ###
 
-PUT http://localhost:3333/items/88
+GET http://localhost:3333/items/60701a429792962528154d92
+
+###
+
+DELETE http://localhost:3333/items/60701c099e240b46281fe323
+
+###
+
+
+PUT http://localhost:3333/items/60701bc814bd21513801a69b
 Content-Type: application/json
 
 {
-  "name": "mr doai",
-  "desc": "this is first test",
-  "qty": 200
+  "name": "The Amazing X-Man"
 }
 
 ###
@@ -17,7 +24,18 @@ POST http://localhost:3333/items
 Content-Type: application/json
 
 {
-  "name": "mr doai",
-  "desc": "this is first test",
-  "qty": 200
+  "name": "Transporter 2",
+  "desc": "John Statham",
+  "qty": 89
+}
+
+###
+
+POST http://localhost:3333/products
+Content-Type: application/json
+
+{
+  "title": "IPhone XS Max 128",
+  "description": "fake",
+  "price": 1200.00
 }

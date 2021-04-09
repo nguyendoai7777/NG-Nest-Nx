@@ -51,7 +51,20 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "skipTests": true
+    },
+    "@nrwl/angular:class": {
+      "skipTests": true
+    },
+    "@nrwl/angular:directive": {
+      "skipTests": true
+    },
+    "@nrwl/angular:pipe": {
+      "skipTests": true
+    },
+    "@nrwl/angular:service": {
+      "skipTests": true
     }
   },
   "projects": {
@@ -70,8 +83,14 @@
             "polyfills": "apps/main/src/polyfills.ts",
             "tsConfig": "apps/main/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/main/src/favicon.ico", "apps/main/src/assets"],
-            "styles": ["apps/main/src/styles.scss"],
+            "assets": [
+              "apps/main/src/favicon.ico",
+              "apps/main/src/assets"
+            ],
+            "styles": [
+              "apps/main/src/styles/scss/styles.scss",
+              "apps/main/src/styles/css/bootstrap.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -108,7 +127,9 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "main:build",
-            "proxyConfig": "apps/main/proxy.conf.json"
+            "proxyConfig": "apps/main/proxy.conf.json",
+            "port": 7777,
+            "open": true
           },
           "configurations": {
             "production": {
@@ -129,12 +150,17 @@
               "apps/main/tsconfig.app.json",
               "apps/main/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/main/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/main/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/main"],
+          "outputs": [
+            "coverage/apps/main"
+          ],
           "options": {
             "jestConfig": "apps/main/jest.config.js",
             "passWithNoTests": true
@@ -163,8 +189,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/main-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/main-e2e/**/*"]
+            "tsConfig": [
+              "apps/main-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/main-e2e/**/*"
+            ]
           }
         }
       }
@@ -176,12 +207,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -210,12 +245,17 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -231,11 +271,18 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/api-interfaces/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
+            "tsConfig": [
+              "libs/api-interfaces/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**/*"
+            ]
           }
         }
       }
     }
   }
 }
+
+

@@ -1,32 +1,35 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Req, Res } from '@nestjs/common';
-import { CreateItemDto } from './dto/create-item.dto';
+import { CreateItemDto } from './create-item.dto';
 import { Request, Response } from 'express';
+import { Item } from './item.interface';
+import { ItemsService } from './items.service';
+import { ItemResponseInterface } from '../../interfaces/response.interface';
 
 @Controller('items')
 export class ItemsController {
-  @Get('kl')
-  findAll(@Req() req: Request, @Res() res: Response): Response {
-    console.log(`request: ${ req.url }`);
-    return res.send('<h1>hello</h1>');
+  constructor(
+    private itemsService: ItemsService
+  ) {
   }
+  @Get('all')
+  async findAll(): Promise<ItemResponseInterface> {
+    return this.itemsService.findAll();
+  }
+
   @Post()
-  create(@Body() createItemDto: CreateItemDto): CreateItemDto {
-    return {
-      desc: createItemDto.desc,
-      name: createItemDto.name,
-      qty: createItemDto.qty
-    };
+  async create(@Body() createItemDto: CreateItemDto): Promise<any> {
+    return this.itemsService.create(createItemDto.desc, createItemDto.qty, createItemDto.name);
   }
   @Get(':id')
-  findOne(@Param('id') id): string {
-    return `${ id }`;
+  async findOne(@Param('id') id): Promise<ItemResponseInterface> {
+    return this.itemsService.findById(id);
   }
   @Delete(':id')
-  delete(@Param('id') id): any {
-    return `deleted item ${ id }`;
+  async delete(@Param('id') id): Promise<ItemResponseInterface> {
+    return this.itemsService.delete(id);
   }
   @Put(':id')
-  update(@Param('id') id, @Body() updateItemDto: CreateItemDto): any {
-    return `updated item ${ id } has nam is ${ updateItemDto.name }`;
+  async update(@Param('id') id, @Body() updateItemDto: CreateItemDto): Promise<ItemResponseInterface> {
+    return this.itemsService.update(id, updateItemDto);
   }
 }

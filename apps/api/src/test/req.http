@@ -1,0 +1,23 @@
+GET http://localhost:3333/items/88
+
+###
+
+PUT http://localhost:3333/items/88
+Content-Type: application/json
+
+{
+  "name": "mr doai",
+  "desc": "this is first test",
+  "qty": 200
+}
+
+###
+
+POST http://localhost:3333/items
+Content-Type: application/json
+
+{
+  "name": "mr doai",
+  "desc": "this is first test",
+  "qty": 200
+}

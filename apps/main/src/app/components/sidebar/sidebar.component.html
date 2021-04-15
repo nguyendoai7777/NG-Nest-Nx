@@ -1,0 +1,16 @@
+<div class='sidebar'>
+  <div class='server-name'>
+    <span>Hà Nội</span>
+  </div>
+  <div class='side-actions'>
+    <a
+      *ngFor='let it of items'
+      class='side-item text-white no-underline'
+      [routerLink]='it.href'
+    >{{it.content}}</a>
+    <a
+      class='side-item text-white no-underline'
+      href='https://gamethuvn.net/?page=downloadss12' target='_blank'
+    >Tải về</a>
+  </div>
+</div>

@@ -11,7 +11,7 @@ export class AppService {
 
   constructor(private http: HttpClient) {
   }
-  getListItem(): Observable<any> {
-    return this.http.get(`${BASE_URL}items/all`, {});
+  getListItem(): Observable<HttpResponse<any>> {
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}items/all`, {});
   }
 }

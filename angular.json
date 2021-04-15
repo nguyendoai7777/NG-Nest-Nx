@@ -88,6 +88,7 @@
               "apps/main/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/main/src/styles/scss/styles.scss",
               "apps/main/src/styles/css/bootstrap.css"
             ],

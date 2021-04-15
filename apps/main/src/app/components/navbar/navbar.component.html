@@ -1,0 +1,29 @@
+<div class='nav-wrapper px-5'>
+  <a routerLink='' class='no-underline logo-link ml-2'>
+    <div class='logo'>
+      <img
+        src='../../../assets/icons/icon-96x96.png'
+        alt='Home'>
+      <div class='nowrap'>Pink Indigo</div>
+    </div>
+  </a>
+  <div class='nav-actions container'>
+    <ng-container *ngFor='let item of navs'>
+      <a
+        mat-button
+        class='nav-action no-underline'
+        [routerLink]='item.href'
+      >{{item.content}}</a>
+    </ng-container>
+  </div>
+  <div class='features d-flex align-items-center'>
+    <button mat-button class='text-white'>
+      Công cụ
+      <mat-icon aria-hidden='false' aria-label='Example home icon'>arrow_drop_down</mat-icon>
+    </button>
+    <button mat-button class='text-white ml-2'>
+      Liên kết
+      <mat-icon aria-hidden='false' aria-label='Example home icon'>arrow_drop_down</mat-icon>
+    </button>
+  </div>
+</div>

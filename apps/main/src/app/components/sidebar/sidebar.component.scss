@@ -1,0 +1,22 @@
+.server-name {
+  background-color: #393d41;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  span {
+    font-size: 20px;
+    color: white;
+    display: block;
+    margin-left: 15px;
+  }
+}
+.side-item {
+  padding: 7px 20px;
+  margin-bottom: 1px;
+  display: block;
+  width: 100%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

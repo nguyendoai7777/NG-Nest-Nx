@@ -1,12 +1,12 @@
-GET http://localhost:3333/items/all
+GET http://localhost:3333/items
 
 ###
 
-GET http://localhost:3333/items/60701a429792962528154d92
+GET http://localhost:3333/items/608961da2cb0fb3b5416c0d7
 
 ###
 
-DELETE http://localhost:3333/items/60701c099e240b46281fe323
+DELETE http://localhost:3333/items/60a5d533527c813c909b57c0
 
 ###
 
@@ -24,8 +24,8 @@ POST http://localhost:3333/items
 Content-Type: application/json
 
 {
-  "name": "Transporter 2",
-  "desc": "John Statham",
+  "name": "Tatoo Tada",
+  "desc": "xa",
   "qty": 89
 }
 
@@ -39,3 +39,6 @@ Content-Type: application/json
   "description": "fake",
   "price": 1200.00
 }
+
+###
+GET http://localhost:3333/products

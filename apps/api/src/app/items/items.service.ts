@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Item, ItemDocument } from './item.interface';
-import { ItemResponseInterface } from '../../interfaces/response.interface';
+import { ItemResponse } from '../../interfaces/response.interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { FAIL, SUCCESS } from '../../assets/response.template';
@@ -12,7 +12,7 @@ export class ItemsService {
     @InjectModel('Item') private readonly itemModel: Model<ItemDocument>
   ) {
   }
-  async findAll(): Promise<ItemResponseInterface> {
+  async findAll(): Promise<ItemResponse> {
     const data = await this.itemModel.find();
     if (!data) {
       return {
@@ -40,7 +40,7 @@ export class ItemsService {
       data: result
     };
   }
-  async findById(id: string): Promise<ItemResponseInterface> {
+  async findById(id: string): Promise<ItemResponse> {
     const find = await this.itemModel.findById(id);
     if (!find) {
       return {
@@ -53,7 +53,7 @@ export class ItemsService {
       data: find
     };
   }
-  async delete(id: string): Promise<ItemResponseInterface> {
+  async delete(id: string): Promise<ItemResponse> {
     const r = await this.itemModel.deleteOne({ _id: id }).exec();
     if (!r) {
       return {
@@ -66,7 +66,7 @@ export class ItemsService {
       data: r['ok'] === 1 ? 'deleted' : 'no'
     };
   }
-  async update(id: string, updateContent: CreateItemDto): Promise<ItemResponseInterface> {
+  async update(id: string, updateContent: CreateItemDto): Promise<ItemResponse> {
     const r = await this.itemModel.findByIdAndUpdate({ _id: id }, updateContent);
     if (!r) {
       return {

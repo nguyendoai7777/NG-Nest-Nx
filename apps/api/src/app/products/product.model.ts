@@ -24,3 +24,9 @@ export interface Product {
 }
 
 export type ProductDocument = Product & Document;
+
+export class ProductDTO {
+  readonly title: string;
+  readonly description: string;
+  readonly price: number;
+}

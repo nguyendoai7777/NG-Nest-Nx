@@ -7,10 +7,10 @@ export interface ResponseInterface {
   message: string;
 }
 
-export interface ItemResponseInterface extends ResponseInterface {
-  data?: Item | Item[] | any;
+export interface ItemResponse extends ResponseInterface {
+  data?: Item | Item[] | string;
 }
 
 export interface ProductResponse extends ResponseInterface {
-  data?: Product | Product[]
+  data?: Product | Product[] | string;
 }

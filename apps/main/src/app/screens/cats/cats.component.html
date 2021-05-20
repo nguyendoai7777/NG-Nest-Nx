@@ -1,1 +1,41 @@
-<p>cats works!</p>
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <h3>Angular 6 Reactive Form Validation</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input
+          type="text"
+          input-number
+          formControlName="phone"
+          class="form-control"
+          maxlength="10"
+          [ngClass]="{ 'is-invalid': registerForm.get('phone').invalid && (f.phone.touched || f.phone.dirty) && f.phone.errors }"
+        />
+        <div *ngIf="f.phone.invalid && (f.phone.touched || f.phone.dirty)"
+             class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">Phone is required</div>
+          <div *ngIf="f.phone.errors.minlength">Phone should be 10 chars</div>
+          <div *ngIf="f.phone.errors.maxlength">Phone should be 10 chars</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          input-number
+          maxlength="10"
+          type="text" formControlName="mobile" class="form-control"
+          [ngClass]="{ 'is-invalid': f.mobile.invalid && (f.mobile.dirty || f.mobile.touched) }" />
+        <div *ngIf="f.mobile.invalid && (f.mobile.dirty || f.mobile.touched)" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+          <div *ngIf="f.mobile.errors.minlength">Mobile should be 10 chars</div>
+          <div *ngIf="f.mobile.errors.maxlength">Mobile should be 10 chars</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

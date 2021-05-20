@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SidebarModule } from './components/sidebar/sidebar.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,6 +25,8 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule,
     AppRoutingModule,
     ScreensRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NavbarModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({

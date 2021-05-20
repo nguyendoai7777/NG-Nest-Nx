@@ -82,7 +82,6 @@
             "main": "apps/main/src/main.ts",
             "polyfills": "apps/main/src/polyfills.ts",
             "tsConfig": "apps/main/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/main/src/favicon.ico",
               "apps/main/src/assets"
@@ -92,7 +91,13 @@
               "apps/main/src/styles/scss/styles.scss",
               "apps/main/src/styles/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -285,5 +290,3 @@
     }
   }
 }
-
-

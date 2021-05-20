@@ -1,6 +1,11 @@
 # Resource
 
-####(***BASE_URL***): "localhost:3333"
+> To start api dev serve, please type in your terminal: "<span style="color: #3daaff">nx serve api</span>"
+
+> #### (***BASE_URL***): "localhost:3333"
+
+> <h3 style="color: #18c2a2; ">You can test request (without POSTMAN) by req.http at: <p style="font-size: 14px; color: #18c2a2; ">apps/api/src/test/req.http - have all example in that file</p></h3>
+
 
 > Api for ***Items***
 
